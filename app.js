@@ -15,25 +15,34 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const title = [];
+const blogTitles = [];
 
+// Home Route
 app.get("/", function (req, res){
   res.render("home", {homeStartingContent});
 });
 
+// About Route
 app.get("/about", function (req, res){
   res.render("about", {aboutContent});
 });
 
+// Contact Route
 app.get("/contact", function (req, res){
   res.render("contact", {contactContent});
 });
 
+// Compose Route
 app.get("/compose", function (req, res){
-  res.render("compose", {blogTitle: title})
+  res.render("compose");
 });
 
+app.post("/compose", function (req, res){
+  const title = req.body.composeInput;
+  console.log(title);
+});
 
+// Port Status
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });

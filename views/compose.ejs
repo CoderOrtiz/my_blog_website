@@ -1,9 +1,10 @@
 <!-- EJS Header Layout -->
 <%- include("./partials/header") -%>
 
+<form action="/compose" method="post">
 <h1>Compose</h1>
 <input type="text" name="composeInput" autocomplete="off">
-<button type="submit" name="publish-btn" value=<% blogTitle %>>Publish</button>
-
+<button type="submit" name="publish-btn">Publish</button>
+</form>
 <!-- EJS Footer Layout -->
 <%- include("./partials/footer") -%>
