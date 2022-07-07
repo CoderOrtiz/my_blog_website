@@ -15,6 +15,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+const title = [];
+
 app.get("/", function (req, res){
   res.render("home", {homeStartingContent});
 });
@@ -25,6 +27,10 @@ app.get("/about", function (req, res){
 
 app.get("/contact", function (req, res){
   res.render("contact", {contactContent});
+});
+
+app.get("/compose", function (req, res){
+  res.render("compose", {blogTitle: title})
 });
 
 
