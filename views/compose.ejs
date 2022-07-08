@@ -3,8 +3,24 @@
 
 <form action="/compose" method="post">
 <h1>Compose</h1>
-<input type="text" name="composeInput" autocomplete="off">
-<button type="submit" name="publish-btn">Publish</button>
+
+
+<form>
+    <!-- Title Input -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Title:</label>
+      <input type="text" class="form-control" name="composeInput" id="exampleFormControlInput1">
+    </div>
+    
+    <!-- Post Input -->
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Post:</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="publish-btn btn btn-primary">Publish</button>
 </form>
+
 <!-- EJS Footer Layout -->
 <%- include("./partials/footer") -%>
