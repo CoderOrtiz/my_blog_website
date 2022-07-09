@@ -15,11 +15,11 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const blogTitles = [];
+let posts = [];
 
 // Home Route
 app.get("/", function (req, res){
-  res.render("home", {homeStartingContent});
+  res.render("home", {posts: posts});
 });
 
 // About Route
@@ -38,8 +38,12 @@ app.get("/compose", function (req, res){
 });
 
 app.post("/compose", function (req, res){
-  const title = req.body.composeInput;
-  console.log(title);
+   const post = {
+    title: req.body.postTitle,
+    body: req.body.postBody,
+  };
+  posts.push(post);
+  res.redirect("/")
 });
 
 // Port Status

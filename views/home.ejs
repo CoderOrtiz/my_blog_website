@@ -3,7 +3,11 @@
 
 <h1>Home</h1>
 
-<p><%= homeStartingContent %></p>
+<!-- Posts Title and Blog to Home Page -->
+
+<% for(let i=0; i<posts.length; i++) { %>
+    <% console.log(posts[i].title); %>
+<% }; %>
 
 <!-- EJS Footer Layout -->
 <%- include("./partials/footer") -%>
