@@ -43,7 +43,12 @@ app.post("/compose", function (req, res){
     body: req.body.postBody,
   };
   posts.push(post);
-  // res.redirect("/")
+  res.redirect("/");
+});
+
+app.get("/posts/:postTitle", function(req, res) {
+  console.log(req.params.postTitle);
+  res.redirect("/");
 });
 
 // Port Status
