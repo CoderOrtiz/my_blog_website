@@ -48,13 +48,17 @@ app.post("/compose", function (req, res){
 });
 
 app.get("/posts/:postTitle", function(req, res) {
-  const requestedTitle = _.lowerCase(req.params.postTitle);
+  const typedUrl = req.params.postTitle;
+  const requestedTitle = _.lowerCase(typedUrl);
 
   posts.forEach(function(post) {
     const storedTitle = _.lowerCase(post.title);
 
     if (storedTitle === requestedTitle) {
+      res.send("")
       console.log("Matched Found!");
+    } else {
+      console.log("Not a Match.");
     }
   });
 
