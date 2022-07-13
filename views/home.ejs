@@ -8,7 +8,9 @@
 <% posts.forEach(function(post){ %>
         <h2> <%= post.title %> </h2>
         <!-- Truncating the Body of the Post to 100 Characters -->
-        <p> <%= post.body.substring(0, 100) + "..."%> </p>
+        <p> <%= post.body.substring(0, 100) + "..."%> 
+        <a href="/posts/<%= post.title %>">Read More</a>
+        </p>
 <%  });  %>
 
 
