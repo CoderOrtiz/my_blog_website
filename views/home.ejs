@@ -6,8 +6,9 @@
 <!-- Posts Title and Blog to Home Page -->
 
 <% posts.forEach(function(post){ %>
-    <h2> <%= post.title %> </h2>
-    <p> <%= post.body %> </p>
+        <h2> <%= post.title %> </h2>
+        <!-- Truncating the Body of the Post to 100 Characters -->
+        <p> <%= post.body.substring(0, 100) + "..."%> </p>
 <%  });  %>
 
 
