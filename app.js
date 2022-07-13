@@ -47,22 +47,24 @@ app.post("/compose", function (req, res){
   res.redirect("/");
 });
 
+// Using Route Parameters (/posts/:postTitle)
 app.get("/posts/:postTitle", function(req, res) {
   const typedUrl = req.params.postTitle;
+
+  // Using "Lodash" (_.lowerCase(typedUrl))
   const requestedTitle = _.lowerCase(typedUrl);
 
   posts.forEach(function(post) {
     const storedTitle = _.lowerCase(post.title);
 
+    // ------------- Cirlce Back ----------------
     if (storedTitle === requestedTitle) {
-      res.send("")
-      console.log("Matched Found!");
-    } else {
-      console.log("Not a Match.");
-    }
+      res.render("post", {
+        title: post.title,
+        body: post.body,
+      });
+    };
   });
-
-  res.redirect("/");
 });
 
 // Port Status
