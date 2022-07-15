@@ -49,15 +49,18 @@ app.post("/compose", function (req, res){
 
 // Using Route Parameters (/posts/:postTitle)
 app.get("/posts/:postTitle", function(req, res) {
+  // Must use req.params.xxx with Route Parameters
   const typedUrl = req.params.postTitle;
 
   // Using "Lodash" (_.lowerCase(typedUrl))
   const requestedTitle = _.lowerCase(typedUrl);
 
   posts.forEach(function(post) {
+    // Each Post Title will be Saved as a "storedTitle"
     const storedTitle = _.lowerCase(post.title);
 
-    // ------------- Cirlce Back ----------------
+    // If the storedTitle Above Matches one of the Requested Title
+    // Then that Key Value Pair will be extracted
     if (storedTitle === requestedTitle) {
       res.render("post", {
         title: post.title,
