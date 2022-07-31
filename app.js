@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const ejs = require("ejs");
 const _ = require('lodash');
 
@@ -16,11 +17,17 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+// Connects to MongoDB
+mongoose.connect("mongodb+srv://CoderOrtiz:eD9smw0q03kERXGt@cluster0.ps36b.mongodb.net/todolistDB");
+
 let posts = [];
 
 // Home Route
 app.get("/", function (req, res){
-  res.render("home", {posts: posts});
+  res.render("home", {
+    staringContent: homeStartingContent,
+    posts: posts
+  });
 });
 
 // About Route
