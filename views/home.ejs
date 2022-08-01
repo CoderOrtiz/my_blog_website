@@ -1,20 +1,29 @@
-<!-- EJS Header Layout -->
-<%- include("./partials/header") -%>
+
+<%- include("partials/header"); -%>
 
 <h1>Home</h1>
+<p> <%= startingContent %> </p>
 
-<p> <%= staringContent %> </p>
-
-
-<!-- Posts Title and Blog to Home Page -->
 
 <% posts.forEach(function(post){ %>
         <h2> <%= post.title %> </h2>
         <!-- Truncating the Body of the Post to 100 Characters -->
-        <p> <%= post.body.substring(0, 100) + "..."%> 
-        <a href="/posts/<%= post.title %>">Read More</a>
+        <p> <%= post.content.substring(0, 100)+"..."%> 
+                <a href="/posts/<%=post._id%>">Read More</a>
         </p>
 <%  });  %>
+
+<%- include("partials/footer"); -%>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- EJS Footer Layout -->
