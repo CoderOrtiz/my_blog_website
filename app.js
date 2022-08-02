@@ -79,12 +79,12 @@ app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactContent});
 });
 
-// let port = process.env.PORT;
-// if (port == null || port == "") {
-//   port = 3000;
-// }
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
 // Port Status
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("Server Has Started Successfully!");
 });
