@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+// const ejsLint = require("ejs-lint");
 const mongoose = require("mongoose");
 
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -12,21 +13,23 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const app = express();
 
 app.set('view engine', 'ejs');
+// app.ejsLint(text, options);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Connects to MongoDB
+// mongoose.connect("mongodb://localhost:27017/blogDB");
 mongoose.connect("mongodb+srv://CoderOrtiz:eD9smw0q03kERXGt@cluster0.ps36b.mongodb.net/blogDB");
 
-const postSchema = {
+const postSchema = new mongoose.Schema ({
   title: String,
   content: String
-};
+});
+
 
 const Post = mongoose.model("Post", postSchema);
 
-// Home Route
 app.get("/", function(req, res){
 
   Post.find({}, function(err, posts){
@@ -37,7 +40,6 @@ app.get("/", function(req, res){
   });
 });
 
-// Compose Route
 app.get("/compose", function(req, res){
   res.render("compose");
 });
@@ -58,33 +60,31 @@ app.post("/compose", function(req, res){
 
 app.get("/posts/:postId", function(req, res){
 
-  const requestedPostId = req.params.postId;
-  
-    Post.findOne({_id: requestedPostId}, function(err, post){
-      res.render("post", {
-        title: post.title,
-        content: post.content
-      });
+const requestedPostId = req.params.postId;
+
+  Post.findOne({_id: requestedPostId}, function(err, post){
+    res.render("post", {
+      title: post.title,
+      content: post.content
     });
-  
   });
 
-// About Route
-app.get("/about", function (req, res){
-  res.render("about", {aboutContent});
 });
 
-// Contact Route
-app.get("/contact", function (req, res){
-  res.render("contact", {contactContent});
+app.get("/about", function(req, res){
+  res.render("about", {aboutContent: aboutContent});
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
+app.get("/contact", function(req, res){
+  res.render("contact", {contactContent: contactContent});
+});
+
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 3000;
+// }
 
 // Port Status
-app.listen(port, function() {
+app.listen(3000, function() {
   console.log("Server Has Started Successfully!");
 });
