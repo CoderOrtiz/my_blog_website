@@ -2,16 +2,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const path = require("path");
 const mongoose = require("mongoose");
 
 // Renaming Express as "app"
 const app = express();
-
-// Requiring BootStrap
-app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
-app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
-app.use(express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 
 // Using Express Templet Engine
 app.set('view engine', 'ejs');
@@ -44,7 +38,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 // "app.get" Uses Express to Route the HTTP GET Requests to the Path Which is Being Specified with the Specified Callback Function
 app.get("/", function(req, res){
-  // res.sendFile(path.join(__dirname, 'views/home.ejs'));
+  
   // ".find" using a MongoDB Method to select Documents in a Collection and Return it
   // {} Is Returning All Documents in a Collection
   Post.find({}, function(err, posts){
