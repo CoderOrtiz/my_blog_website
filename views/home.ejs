@@ -1,15 +1,16 @@
 
 <%- include("partials/header"); -%>
 
-<div class="page-content">
+<div class="page-content home">
 
 <h1>Home</h1>
 <p> <%= startingContent %> </p>
 
+<hr>
 
 <% posts.forEach(function(post){ %>
  
-        <h2> <%= post.title %> </h2>
+        <h2 class="home-h2"> <%= post.title %> </h2>
         <!-- Truncating the Body of the Post to 100 Characters -->
         <p> <%= post.content.substring(0, 100) + "..." %> 
                 <a class= "read-more" href="/posts/<%=post._id%>">Read More</a>

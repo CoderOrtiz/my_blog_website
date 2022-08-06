@@ -97,6 +97,12 @@ footer p {
         font-size: 50px ! important;
     }
 
+    .home-h2 {
+        margin-top: 70px;
+        margin-bottom: 40px;
+        font-size: 70px;
+    }
+
     .page-content {
         width: 138%;
         height: fit-content;
@@ -134,5 +140,9 @@ footer p {
     form h1 {
         font-size: 70px;
         margin-bottom: 20px;
+    }
+
+    footer {
+        font-size: 40px;
     }
 }
