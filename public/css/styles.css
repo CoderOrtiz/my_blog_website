@@ -3,7 +3,6 @@
     top: 0; 
     left: 0; 
     z-index:-1;
-    /* Preserve aspet ratio */
     min-width: 100%;
     min-height: 100%;
   }
@@ -34,6 +33,7 @@
 .navbar-collapse {
     padding-left: 47%;
 }
+
 .page-content {
     margin: 50px;
     padding: 30px;
@@ -45,7 +45,7 @@
 .read-more:link {
     color:skyblue; 
     text-decoration: none;
-  }
+}
 .read-more:visited {
     color: skyblue;
     text-decoration: none;
@@ -82,4 +82,13 @@ background-color: transparent;
 
 footer p {
 	padding-top: 10px;
+}
+
+@media (max-width: 991px) {
+    .page-content{
+        width: 138%;
+    }
+    div.container {
+        margin-left: -50px;
+    }
 }
