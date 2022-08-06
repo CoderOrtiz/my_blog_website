@@ -1,4 +1,4 @@
-img {
+.main-img {
     position: fixed; 
     top: 0; 
     left: 0; 
@@ -7,6 +7,13 @@ img {
     min-width: 100%;
     min-height: 100%;
   }
+
+.contact-images {
+    width: 100px;
+    padding-top: 75px;
+    margin-left: 15%;
+}
+
 #navbarNav {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -47,6 +54,19 @@ img {
 .read-more:hover {
     color: white;
     text-decoration: none;
+}
+
+#exampleFormControlInput1 {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+#exampleFormControlTextarea1 {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.submit {
+    margin-top: 10px;
 }
 
 footer {
