@@ -132,6 +132,10 @@ footer p {
         margin-left: -50px;
     }
 
+    label {
+        font-size: 55px;
+    }
+
     form {
         margin-left: 8%;
         width: 136%;
@@ -143,6 +147,9 @@ footer p {
     }
 
     footer {
-        font-size: 40px;
-    }
+        position: relative;
+        height: 130px;
+        clear: both;
+        font-size: 30px;
+      }
 }
