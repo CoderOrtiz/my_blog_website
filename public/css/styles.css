@@ -85,10 +85,54 @@ footer p {
 }
 
 @media (max-width: 991px) {
-    .page-content{
-        width: 138%;
+    .navbar-brand {
+        font-size: 70px ! important;
     }
+
+    button {
+        font-size: 50px ! important;
+    }
+
+    ul {
+        font-size: 50px ! important;
+    }
+
+    .page-content {
+        width: 138%;
+        height: fit-content;
+    }
+
+    .page-content h1 {
+        font-size: 70px;
+        margin-bottom: 20px;
+    }
+
+    .page-content p {
+        font-size: 50px;
+    }
+
+    .page-content li {
+        font-size: 50px;
+    }
+
+    .contact-images {
+        text-align: center;
+        margin-left: 18%;
+        /* height: 200px; */
+        width: 210px;
+    }
+
     div.container {
         margin-left: -50px;
+    }
+
+    form {
+        margin-left: 8%;
+        width: 136%;
+    }
+
+    form h1 {
+        font-size: 70px;
+        margin-bottom: 20px;
     }
 }
