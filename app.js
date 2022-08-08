@@ -29,7 +29,7 @@ const postSchema = new mongoose.Schema ({
 const Post = mongoose.model("Post", postSchema);
 
 // Declaring Content for Home, and Contact Pages
-const homeStartingContent = "Welcome to my Blog Website! Here, you can write any blog post of your choosing by clicking, “COMPOSE” in the upper right-hand corner. Just enter a title of your post and whatever you want to discuss! If you want to know more about this project, feel free to stop by the About Section. If you want to get in contact with me, please visit the Contact Section. Thanks for visiting and please write a post just to mark that you were here and saw my Blog Website!";
+const homeStartingContent = "Welcome to my Blog Website! This is a simple CRUD Full-stack Website to practice using editing MongoDB from the site. This website is Responsive so feel free to check it out in different settings. If you want to know more about this project, feel free to stop by the About Section. If you want to get in contact with me, please visit the Contact Section. Thanks for visiting  👋🏽";
 const contactContent = "Welcome to my Contact Page! The best way to get in contact with me is through LinkedIn! Stop by my GitHub if you have the time 🙂";
 
 
